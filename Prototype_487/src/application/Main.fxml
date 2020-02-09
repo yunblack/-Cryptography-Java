@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<Pane fx:id="Mpane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="441.0" prefWidth="800.0" style="-fx-background-color: #000000;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.ActionController">
+	<children>
+		<Label layoutX="358.0" layoutY="177.0" text="prototype" textFill="WHITE">
+			<font>
+				<Font name="Arial" size="20.0" />
+			</font>
+		</Label>
+		<Label layoutX="25.0" layoutY="22.0" text="Prototype 487" textFill="WHITE">
+			<font>
+				<Font name="Arial" size="20.0" />
+			</font>
+		</Label>
+		<Label layoutX="205.0" layoutY="147.0" text="Online Secret Splitting and Sharing" textFill="WHITE">
+			<font>
+				<Font name="Arial" size="25.0" />
+			</font>
+		</Label>
+		<Button fx:id="start1" layoutX="419.0" layoutY="259.0" mnemonicParsing="false" onAction="#decryptoP" prefHeight="34.0" prefWidth="164.0" style="-fx-background-color: #000000; -fx-border-color: #ffffff;" text="Decrypting" textAlignment="CENTER" textFill="WHITE">
+			<font>
+				<Font name="System Bold" size="20.0" />
+			</font>
+		</Button>
+      <Button fx:id="start" layoutX="236.0" layoutY="259.0" mnemonicParsing="false" onAction="#encryptoP" prefHeight="34.0" prefWidth="164.0" style="-fx-background-color: #000000; -fx-border-color: #ffffff;" text="Encrypting" textAlignment="CENTER" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Button>
+      <HBox fx:id="Decrypto" layoutX="7.0" layoutY="63.0" prefHeight="371.0" prefWidth="786.0" visible="false">
+         <children>
+            <AnchorPane prefHeight="371.0" prefWidth="393.0" style="-fx-border-color: #ffffff; -fx-background-color: #000000;">
+               <children>
+                  <TextField fx:id="TauVal" layoutX="14.0" layoutY="14.0" prefHeight="25.0" prefWidth="365.0" />
+                  <TextField fx:id="DecEmail1" layoutX="14.0" layoutY="98.0" prefHeight="25.0" prefWidth="365.0" />
+                  <TextField fx:id="DecEmail2" layoutX="12.0" layoutY="186.0" prefHeight="25.0" prefWidth="365.0" />
+                  <TextField fx:id="DecEmail3" layoutX="12.0" layoutY="285.0" prefHeight="25.0" prefWidth="365.0" />
+                  <Button fx:id="AddDec" layoutX="14.0" layoutY="324.0" mnemonicParsing="false" onAction="#DecSet" prefHeight="25.0" prefWidth="365.0" text="Insert" />
+               </children>
+            </AnchorPane>
+            <AnchorPane prefHeight="371.0" prefWidth="393.0" style="-fx-border-color: #ffffff; -fx-background-color: #000000;">
+               <children>
+                  <ListView fx:id="DecFiles" layoutX="14.0" layoutY="14.0" prefHeight="297.0" prefWidth="365.0" />
+                  <Button fx:id="DecStart" layoutX="14.0" layoutY="321.0" mnemonicParsing="false" onAction="#FileDec" prefHeight="38.0" prefWidth="365.0" text="Decrypting" />
+               </children></AnchorPane>
+         </children>
+      </HBox>
+		<HBox fx:id="Encrypto" layoutX="7.0" layoutY="63.0" prefHeight="371.0" prefWidth="786.0" style="-fx-background-color: #000000;" visible="false">
+			<children>
+				<AnchorPane fx:id="ShareInfo" prefHeight="363.0" prefWidth="393.0" style="-fx-border-color: #ffffff;">
+					<children>
+						<Button fx:id="PartS" layoutX="318.0" layoutY="14.0" mnemonicParsing="false" onAction="#encset" prefHeight="22.0" prefWidth="50.0" text="Set" textAlignment="CENTER" />
+						<TextField fx:id="PartN" layoutX="81.0" layoutY="14.0" prefHeight="22.0" prefWidth="231.0" promptText="Number of Participants(1 - 10)" />
+						<Label contentDisplay="CENTER" layoutX="14.0" layoutY="16.0" prefHeight="19.0" prefWidth="57.0" text="Number" textAlignment="CENTER" textFill="#00ff0d">
+							<font>
+								<Font name="System Bold" size="15.0" />
+							</font>
+						</Label>
+						<ListView fx:id="addressList" layoutX="14.0" layoutY="48.0" prefHeight="277.0" prefWidth="365.0" />
+						<TextField fx:id="addressEnter" layoutX="14.0" layoutY="332.0" prefHeight="22.0" prefWidth="307.0" promptText="email_address" />
+						<Button fx:id="addItem" layoutX="329.0" layoutY="332.0" mnemonicParsing="false" onAction="#AddEmail" prefHeight="22.0" prefWidth="50.0" text="Add" />
+					</children>
+				</AnchorPane>
+				<AnchorPane prefHeight="330.0" prefWidth="393.0" style="-fx-border-color: #ffffff;">
+               <children>
+                  <TextArea fx:id="original" disable="true" layoutX="14.0" layoutY="44.0" prefHeight="31.0" prefWidth="365.0" promptText="Input the original text" />
+                  <TextArea fx:id="FileName" disable="true" layoutX="14.0" layoutY="129.0" prefHeight="38.0" prefWidth="365.0" promptText="File Name" />
+                  <Button fx:id="EncStart" disable="true" layoutX="14.0" layoutY="90.0" mnemonicParsing="false" onAction="#startE" prefHeight="29.0" prefWidth="365.0" style="-fx-background-color: #007777;" text="Key Gen" textFill="#09ff00">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Button>
+                  <Label layoutX="14.0" layoutY="14.0" text="Encrypt" textFill="#00ff00">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+                  <ListView fx:id="FileList" layoutX="14.0" layoutY="175.0" prefHeight="144.0" prefWidth="365.0" />
+                  <Button fx:id="FileAdd" disable="true" layoutX="14.0" layoutY="326.0" mnemonicParsing="false" onAction="#FileEnc" prefHeight="29.0" prefWidth="365.0" style="-fx-background-color: #007777;" text="Encrypting" textFill="#09ff00">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Button>
+               </children></AnchorPane>
+			</children>
+		</HBox>
+	</children>
+</Pane>
